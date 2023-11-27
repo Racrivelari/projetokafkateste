@@ -1,0 +1,17 @@
+url:http://localhost:8080/mensagem/send
+method:post
+
+->request json body
+
+{
+	"codMsg": "MSG003",
+    "numCtrlCCS": "123456",
+    "cnpjBaseEntRespons": "123456789012345",
+    "cnpjBasePart": "123456789012345",
+    "agIf": 1234,
+    "ctDep": 1234567890,
+    "dtIni": "2023-11-08",
+    "dtFim": "2023-11-08",
+    "dtHrBC": "2023-11-08T00:00:00",
+    "dtMovto": "2023-11-08"
+}
