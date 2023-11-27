@@ -1,0 +1,27 @@
+quando conecta mais de 1 consumer no msm topico no broker basicamente ele divide os numeros de particoes por consumers
+
+é interessante ter 1 consumer por particao
+
+
+msm q tenha 2 consumers com particoes dividdas ouvindo msm topico e msm grupo
+a msg q é enviada uma vez, só uma particao vai pegar, ou seja só um listener ira processar a msg
+
+se vc quer q todos os listeners processem a msm msg, tem q ser um group id diferente pra cada particao
+
+
+* o q acontece quando envia a msg por msm topico em grupos diferentes
+rola um broadcast ent todos os listeners vao processar
+
+NAO EXISTE ORDEM DE CONSUMO QUANDO TEM MAIS DE 1 PARTICAO
+
+//obs:atuais:
+app integra docker container pra producer kafka + consumer
++ api em python de persistencia de mensagens em um bd sql
+
+*rodar->
+    -subir container docker (docker-compose up)
+    -start producer/consumer/api python (cd folder + python app.py)
+    -send request via postman/imsomnia
+    -check mysql for update on table
+
+*persistencia funcional, add logica de fluxo de status processamento + retorno http pro consumer (realizar envio sqs)
